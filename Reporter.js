@@ -4,31 +4,39 @@ const report = require('cucumberjs-playwright-reporter');
 const reportPath = './reports/html'
 fs.removeSync(reportPath); 
 
-
   
 
 report.generate({
 	jsonDir: './reports',
 	reportPath: reportPath,
+    openReportInBrowser: true,
+staticFilePath: true,
+saveCollectedJSON: true,
+disableLog: false,
+pageTitle: "Playwright Cucumber Reporter",
+reportName: "<h3><I>  Playwright Reporter </I></h3>",
+displayDuration: true,
+durationInMS: true,
+hideMetadata: false,
+displayReportTime: true,
 	metadata:{
         browser: {
             name: 'chrome',
-            version: '60'
+            version: '105'
         },
         device: 'Local test machine',
         platform: {
-            name: 'ubuntu',
-            version: '16.04'
+            name: 'Windows',
+            version: '10'
         }
     },
     customData: {
         title: 'Run info',
         data: [
-            {label: 'Project', value: 'Custom project'},
-            {label: 'Release', value: '1.2.3'},
-            {label: 'Cycle', value: 'B11221.34321'},
-            {label: 'Execution Start Time', value: 'Nov 19th 2017, 02:31 PM EST'},
-            {label: 'Execution End Time', value: 'Nov 19th 2017, 02:56 PM EST'}
+            {label: 'Project', value: 'Cucumber project'},
+            {label: 'Release', value: '1'},
+            {label: 'Execution Start Time', value: 'Sep 29th 2022, 02:31 PM EST'},
+            {label: 'Execution End Time', value: 'Sep 29th 2022, 02:36 PM EST'}
         ]
     }
 });

@@ -1,5 +1,5 @@
 {
-  "name": "playwright-cucumber-quickstart",
+  "name": "playwright-bdd-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "update": "npx npm-check-updates --upgrade && npm install && npm audit fix"
   },
   "keywords": [],
-  "author": "Vignesh Ayyamani",
+  "author": "Vignesh",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^8.5.2",
@@ -30,8 +30,6 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "allure-cucumberjs": "^2.0.0-beta.19",
-    "allure-playwright": "^2.0.0-beta.19",
     "cucumber-junit-reporter": "0.0.1",
     "cucumber-to-junit": "^0.1.3",
     "cucumberjs-playwright-reporter": "^1.0.8",
