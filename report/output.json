@@ -1,0 +1,22 @@
+{
+  "Scenarios_Passed": 4,
+  "Scenarios_Skipped": 0,
+  "Scenarios_Total": 5,
+  "Scenarios_Failed": 1,
+  "Scenarios_Passedpercentage": "80.00",
+  "Scenarios_Failedpercentage": "20.00",
+  "Featurecount_Passed": 2,
+  "Featurecount_Failed": 1,
+  "Featurecount_Total": 3,
+  "Features": [
+    "Amazon",
+    "Flipkart Page",
+    "Login Page"
+  ],
+  "ExecutionStartTime": "",
+  "TotalExecutionTime": "",
+  "ExecutionEndTime": "",
+  "ExecutionType": "",
+  "ApplicationName": "",
+  "Environment": ""
+}

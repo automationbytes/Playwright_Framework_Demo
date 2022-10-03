@@ -1,0 +1,40 @@
+{
+  "name": "playwright-cucumber-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js ",
+    "test:chrome": "set BROWSER=chrome && npm run test",
+    "test:firefox": "set BROWSER=firefox && npm run test",
+    "test:webkit": "set BROWSER=webkit && npm run test",
+    "lint": "eslint --ext .js . --fix",
+    "prettier": "prettier **/*.js --write",
+    "update": "npx npm-check-updates --upgrade && npm install && npm audit fix"
+  },
+  "keywords": [],
+  "author": "Vignesh Ayyamani",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.5.2",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "@playwright/test": "^1.25.2",
+    "chai": "^4.3.6",
+    "cross-env": "^7.0.3",
+    "cucumber-junit": "^1.7.1",
+    "dotenv": "^16.0.2",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jsonjunit": "^1.0.1",
+    "playwright": "^1.25.2",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "allure-cucumberjs": "^2.0.0-beta.19",
+    "allure-playwright": "^2.0.0-beta.19",
+    "cucumber-junit-reporter": "0.0.1",
+    "cucumber-to-junit": "^0.1.3",
+    "cucumberjs-playwright-reporter": "^1.0.8",
+    "jsonfile-updater": "^3.1.0"
+  }
+}

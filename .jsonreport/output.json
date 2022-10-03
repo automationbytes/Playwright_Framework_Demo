@@ -1,0 +1,66 @@
+{
+  "ApplicationName": "",
+  "ExecutionType": "",
+  "Environment": "",
+  "Features_Total": 3,
+  "Features_Passed": 2,
+  "Features_Failed": 1,
+  "Features_Skipped": 0,
+  "Features_PassedPercentage": "66.67",
+  "Features_FailedPercentage": "33.33",
+  "Features": [
+    {
+      "FeatureName": "Amazon",
+      "Scenarios_Count": 3,
+      "Scenarios_Passed_Count": 3,
+      "Scenarios_Failed_Count": 0,
+      "Scenarios_Skipped_Count": 0,
+      "Scenarios_Passed": [
+        "Amazon 1",
+        "Amazon 2",
+        "Amazon 3"
+      ],
+      "Scenarios_Failed": [],
+      "Scenarios_Skipped": []
+    },
+    {
+      "FeatureName": "Flipkart Page",
+      "Scenarios_Count": 1,
+      "Scenarios_Passed_Count": 1,
+      "Scenarios_Failed_Count": 0,
+      "Scenarios_Skipped_Count": 0,
+      "Scenarios_Passed": [
+        "Flipkart 1"
+      ],
+      "Scenarios_Failed": [],
+      "Scenarios_Skipped": []
+    },
+    {
+      "FeatureName": "Login Page",
+      "Scenarios_Count": 1,
+      "Scenarios_Passed_Count": 0,
+      "Scenarios_Failed_Count": 1,
+      "Scenarios_Skipped_Count": 0,
+      "Scenarios_Passed": [],
+      "Scenarios_Failed": [
+        {
+          "Failed_ScenarioName": "Login with valid credentials",
+          "Failed_Step": {
+            "Failed_StepName": "Given  I am on the landing page",
+            "Failed_Reason": "page.fill: Timeout 30000ms exceeded. logs waiting for selector \"//*[@name\"q\"]\"    at LoginPage.verifyLoginPageIsDisplayed "
+          }
+        }
+      ],
+      "Scenarios_Skipped": []
+    }
+  ],
+  "Scenarios_Total": 5,
+  "Scenarios_Passed": 4,
+  "Scenarios_Failed": 1,
+  "Scenarios_Skipped": 0,
+  "Scenarios_PassedPercentage": "80.00",
+  "Scenarios_FailedPercentage": "20.00",
+  "ExecutionStartTime": "",
+  "ExecutionEndTime": "",
+  "TotalExecutionTime": ""
+}
