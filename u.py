@@ -20,19 +20,37 @@ for dirpath, dirnames, filenames in os.walk(base_directory):
                 try:
                     json_data = json.load(json_file)
                     
-                    # Extract the required information
-                    total = json_data.get('total', 0)  # Default to 0 if not found
-                    repname = json_data.get('repname', 'N/A')  # Default to 'N/A' if not found
-                    mfa = json_data.get('mfa', 'N/A')  # Default to 'N/A' if not found
-                    
-                    # Append the data to the list
-                    data.append({
-                        'Folder Path': dirpath,  # Full path of the folder containing the file
-                        'Report Name': repname,
-                        'MFA': mfa,
-                        'Total': total,
-                        'OUD Total': total  # Assuming OUD total is the same as total
-                    })
+                    # Check if json_data is a list or a dictionary
+                    if isinstance(json_data, list):
+                        for item in json_data:
+                            total = item.get('total', 0)  # Default to 0 if not found
+                            repname = item.get('repname', 'N/A')  # Default to 'N/A' if not found
+                            mfa = item.get('mfa', 'N/A')  # Default to 'N/A' if not found
+                            
+                            # Append the data to the list
+                            data.append({
+                                'Folder Path': dirpath,  # Full path of the folder containing the file
+                                'Report Name': repname,
+                                'MFA': mfa,
+                                'Total': total,
+                                'OUD Total': total  # Assuming OUD total is the same as total
+                            })
+                    elif isinstance(json_data, dict):
+                        total = json_data.get('total', 0)  # Default to 0 if not found
+                        repname = json_data.get('repname', 'N/A')  # Default to 'N/A' if not found
+                        mfa = json_data.get('mfa', 'N/A')  # Default to 'N/A' if not found
+                        
+                        # Append the data to the list
+                        data.append({
+                            'Folder Path': dirpath,  # Full path of the folder containing the file
+                            'Report Name': repname,
+                            'MFA': mfa,
+                            'Total': total,
+                            'OUD Total': total  # Assuming OUD total is the same as total
+                        })
+                    else:
+                        print(f"Unexpected JSON structure in file: {file_path}")
+
                 except json.JSONDecodeError:
                     print(f"Error decoding JSON from file: {file_path}")
 
