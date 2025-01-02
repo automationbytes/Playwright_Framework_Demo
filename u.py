@@ -20,34 +20,33 @@ for dirpath, dirnames, filenames in os.walk(base_directory):
                 try:
                     json_data = json.load(json_file)
                     
-                    # Check if json_data is a list or a dictionary
+                    # Check if json_data is a list
                     if isinstance(json_data, list):
+                        # Initialize a dictionary to count occurrences of file paths
+                        file_path_count = {}
+                        
                         for item in json_data:
-                            total = item.get('total', 0)  # Default to 0 if not found
-                            repname = item.get('repname', 'N/A')  # Default to 'N/A' if not found
-                            mfa = item.get('mfa', 'N/A')  # Default to 'N/A' if not found
+                            # Get the file_path
+                            path = item.get('file_path')
+                            if path:
+                                # Increment the count for this file_path
+                                if path in file_path_count:
+                                    file_path_count[path] += 1
+                                else:
+                                    file_path_count[path] = 1
+                        
+                        # Now, we can prepare the data for the DataFrame
+                        for path, count in file_path_count.items():
+                            # Determine if the file is reportoud or reportmfa
+                            report_type = 'OUD' if file_name.endswith('reportoud.json') else 'MFA'
                             
-                            # Append the data to the list
                             data.append({
                                 'Folder Path': dirpath,  # Full path of the folder containing the file
-                                'Report Name': repname,
-                                'MFA': mfa,
-                                'Total': total,
-                                'OUD Total': total  # Assuming OUD total is the same as total
+                                'Report Name': report_type,
+                                'Total': count,  # Count of occurrences of this file_path
+                                'OUD Total': count if report_type == 'OUD' else 0,  # Assuming OUD total is the same as total
+                                'MFA Total': count if report_type == 'MFA' else 0  # Assuming MFA total is the same as total
                             })
-                    elif isinstance(json_data, dict):
-                        total = json_data.get('total', 0)  # Default to 0 if not found
-                        repname = json_data.get('repname', 'N/A')  # Default to 'N/A' if not found
-                        mfa = json_data.get('mfa', 'N/A')  # Default to 'N/A' if not found
-                        
-                        # Append the data to the list
-                        data.append({
-                            'Folder Path': dirpath,  # Full path of the folder containing the file
-                            'Report Name': repname,
-                            'MFA': mfa,
-                            'Total': total,
-                            'OUD Total': total  # Assuming OUD total is the same as total
-                        })
                     else:
                         print(f"Unexpected JSON structure in file: {file_path}")
 
